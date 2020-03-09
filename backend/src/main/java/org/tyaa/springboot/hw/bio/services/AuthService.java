@@ -10,8 +10,10 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.tyaa.springboot.hw.bio.entities.Role;
+import org.tyaa.springboot.hw.bio.entities.User;
 import org.tyaa.springboot.hw.bio.model.JsonHttpResponse;
 import org.tyaa.springboot.hw.bio.model.RoleModel;
+import org.tyaa.springboot.hw.bio.model.UserModel;
 import org.tyaa.springboot.hw.bio.repositories.RoleRepository;
 import org.tyaa.springboot.hw.bio.repositories.UserRepository;
 
@@ -46,7 +48,7 @@ public class AuthService {
 
     public JsonHttpResponse<List<UserModel>> readUser() {
 
-        List<User> users = userDAO.read();
+        List<User> users = (List<User>) userRepository.findAll();
         List<UserModel> userModels
                 = users.stream()
                         .map((u) -> {
@@ -54,7 +56,6 @@ public class AuthService {
                                     u.getId(),
                                     u.getName(),
                                     u.getPassword(),
-                                    u.getMail(),
                                     new RoleModel(
                                             u.getRole().getId(),
                                             u.getRole().getName()
