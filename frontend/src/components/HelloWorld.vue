@@ -3,6 +3,9 @@
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
+      <li v-for="role in roles" :key="role">
+        {{ role.name }}
+      </li>
       <li>
         <a
           href="https://vuejs.org"
@@ -88,8 +91,26 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      roles: []
     }
+  },
+  created () {
+      const currentComponent = this
+      const url = '/api/roles'
+      const requestData = {
+          method: 'GET',
+          // mode: 'cors',
+          // body: JSON.stringify(data)
+      }
+      const request = new Request(url, requestData)
+      fetch(request).then(function (response) {
+          return response.json()
+      }).then(function (response) {
+          currentComponent.roles = response.data;
+      }).catch(function (e) {
+          console.log(e)
+      })
   }
 }
 </script>

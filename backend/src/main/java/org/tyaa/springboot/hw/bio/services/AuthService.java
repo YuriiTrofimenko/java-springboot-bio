@@ -30,7 +30,7 @@ public class AuthService {
     @Autowired
     private UserRepository userRepository;
     
-    public JsonHttpResponse<List<RoleModel>> readRole() {
+    public JsonHttpResponse<List<RoleModel>> getRoles() {
 
         List<Role> roles = (List) roleRepository.findAll();
         List<RoleModel> roleModels
