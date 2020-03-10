@@ -13,5 +13,5 @@ import org.tyaa.springboot.hw.bio.entities.User;
  * @author student
  */
 public interface UserRepository extends CrudRepository<User, Long>{
-    
+    User findByName(String name);
 }

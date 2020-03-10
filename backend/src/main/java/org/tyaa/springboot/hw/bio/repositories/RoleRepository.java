@@ -13,5 +13,5 @@ import org.tyaa.springboot.hw.bio.entities.Role;
  * @author student
  */
 public interface RoleRepository extends CrudRepository<Role, Long> {
-    
+    Role findByName(String name);
 }

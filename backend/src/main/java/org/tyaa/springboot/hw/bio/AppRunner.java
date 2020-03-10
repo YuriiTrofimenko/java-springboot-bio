@@ -28,13 +28,13 @@ public class AppRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        userRepository.deleteAll();
+        /* userRepository.deleteAll();
         roleRepository.deleteAll();
         Role adminRole =
             roleRepository.save(new Role("admin"));
-	userRepository.save(new User("admin", "1", adminRole));
-        Role userRole =
-            roleRepository.save(new Role("user"));
-	userRepository.save(new User("user2", "2", userRole));
+        userRepository.save(new User("admin", "1", adminRole));
+            Role userRole =
+                roleRepository.save(new Role("user"));
+        userRepository.save(new User("user2", "2", userRole)); */
     }
 }

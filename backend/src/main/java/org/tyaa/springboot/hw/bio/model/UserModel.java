@@ -20,17 +20,8 @@ public class UserModel {
     public String name;
     public String password;
     public RoleModel role;
-    public Boolean subscribe;
-    
-    public UserModel() {}
 
-    public UserModel(Integer id, String name, String password, RoleModel role, Boolean subscribe) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.role = role;
-        this.subscribe = subscribe;
-    }
+    public UserModel() {}
 
     public UserModel(String name, String password, RoleModel role) {
         this.name = name;
